@@ -5,14 +5,20 @@ React Choices!
 ## Usage
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Choices from '../src';
+
 const App = () => {
-const choices = ['hello', 'hi', '你好'];
-const answer = 0;
-const handleSubmit = (choices, answer) => {
-    console.log(`chocies: ${choices}; answer:${answer}`);
-}
-return <Choices choices={choices} answer={answer} handleSubmit={handleSubmit}
-}
+  const handleSubmit = (choices, answer) => e => {
+    e.preventDefault();
+    alert(`chocies: ${choices}; answer:${answer}`);
+  };
+
+  return <Choices choices={['hello', 'hi']} answer={0} handleSubmit={handleSubmit} />;
+};
+
+ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
 ## API
@@ -28,9 +34,9 @@ return <Choices choices={choices} answer={answer} handleSubmit={handleSubmit}
 yarn
 
 yarn start
+```
 
 Open http://localhost:8080
-```
 
 ## License
 
