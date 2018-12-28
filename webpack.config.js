@@ -1,35 +1,29 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: "./example/index.js",
+  entry: path.resolve(__dirname, './src/lib/index.js'),
   output: {
-    path: path.resolve(__dirname, "example/dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, './dist/lib'),
+    filename: 'index.js',
+    library: '',
+    libraryTarget: 'commonjs',
   },
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
-      }
-    ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "example/index.html"),
-      filename: "./index.html"
-    })
-  ]
 };
