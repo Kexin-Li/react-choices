@@ -1,48 +1,102 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { transformChoices, formatChoices, findAnswer } from "./utils";
 
 const propTypes = {
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  styles: PropTypes.object
+  choices: PropTypes.array.isRequired,
+  answer: PropTypes.number.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 
-const defaultProps = {
-  styles: {
-    label: {
-      fontFamily: "Comic Sans MS",
-      color: "green"
-    },
-    input: {
-      background: "#ddd",
-      border: "1px solid red"
-    }
-  }
-};
-
-class BoilerplateComponent extends React.Component {
+class Choices extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+
+    this.state = {
+      choices: transformChoices(props.choices, props.answer)
+    };
   }
 
-  handleChange(e) {
-    this.props.onChange(e.target.value);
-  }
+  handleChoiceChange = index => e => {
+    const newChoices = this.state.choices.map((choice, sidx) => {
+      if (index !== sidx) return choice;
+      return { ...choice, name: e.target.value };
+    });
+    this.setState({ choices: newChoices });
+  };
+
+  handleRemoveChoice = index => () => {
+    if (this.state.choices[index].isActive) {
+      return;
+    }
+    this.setState({
+      choices: this.state.choices.filter((choice, sidx) => index !== sidx)
+    });
+  };
+
+  handleAddChoice = () => {
+    this.setState({
+      choices: this.state.choices.concat([{ name: "", isActive: false }])
+    });
+  };
+
+  handleAnswerChange = index => () => {
+    const newChoices = this.state.choices.map((choice, sidx) => {
+      if (index === sidx) {
+        choice.isActive = true;
+        return choice;
+      }
+      choice.isActive = false;
+      return choice;
+    });
+
+    this.setState({
+      choices: newChoices
+    });
+  };
 
   render() {
-    const styles = this.props.styles || {};
+    const { handleSubmit } = this.props;
+    const { choices } = this.state;
 
     return (
-      <div>
-        <label style={styles.label}>{this.props.label}</label>
-        <input type="text" style={styles.input} onChange={this.handleChange} />
-      </div>
+      <form>
+        {choices.map((choice, index) => (
+          <div key={["choice", index].join("__")}>
+            <input
+              name="choice"
+              type="radio"
+              checked={choice.isActive}
+              value={index}
+              onChange={this.handleAnswerChange(index)}
+            />
+            {String.fromCharCode(65 + index)}
+            <input
+              type="text"
+              value={choice.name}
+              onChange={this.handleChoiceChange(index)}
+            />
+            <button type="button" onClick={this.handleRemoveChoice(index)}>
+              delete
+            </button>
+          </div>
+        ))}
+        <button type="button" onClick={this.handleAddChoice}>
+          add choice
+        </button>
+        <div>
+          <button
+            type="submit"
+            onClick={handleSubmit(formatChoices(choices), findAnswer(choices))}
+          >
+            submit
+          </button>
+        </div>
+      </form>
     );
   }
 }
 
-BoilerplateComponent.propTypes = propTypes;
-BoilerplateComponent.defaultProps = defaultProps;
+Choices.propTypes = propTypes;
 
-export default BoilerplateComponent;
+export default Choices;

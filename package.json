@@ -3,9 +3,23 @@
   "version": "1.0.2",
   "description": "React choices answer component.",
   "main": "./lib/index.js",
-  "repository": "git@github.com:Kexin-Li/react-choices.git",
+  "homepage": "https://github.com/Kexin-Li/react-choices",
   "author": "Kexin-Li <hollalikexin@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "react component",
+    "react dynamic input",
+    "react form",
+    "react choices and answer"
+  ],
+  "repository": {
+    "type": "git",
+    "url:": "git@github.com:Kexin-Li/react-choices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kexin-Li/react-choices/issues"
+  },
   "scripts": {
     "build": "webpack"
   },

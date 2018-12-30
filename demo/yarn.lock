@@ -3313,10 +3313,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-choices-answer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-choices-answer/-/react-choices-answer-1.0.0.tgz#aa92432aa71faa266b24a953eb5b2f64167fb08e"
-  integrity sha512-puMlrv7m8OkZzMaEH799a7Y94ljEs4eVWJeoX6qYrAcq61XLMet9RVbaioWRO3+v/JP5HJfPE+BNaiIIrshuYQ==
+react-choices-answer@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-choices-answer/-/react-choices-answer-1.0.2.tgz#6114b69bb48c825718bfe02613ccb7f376e32f17"
+  integrity sha512-PADDig+h0nuUh/1VegZ+V8BlUbttDeCFiimUmfCfdz3wQiwyS60I3ibshxU5ry9F++H50HoA3CJcdhLEbKzg2g==
 
 react-dom@^16.7.0:
   version "16.7.0"
