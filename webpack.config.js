@@ -1,29 +1,24 @@
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+var path = require("path");
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/lib/index.js'),
+  mode: "production",
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, './dist/lib'),
-    filename: 'index.js',
-    library: '',
-    libraryTarget: 'commonjs',
+    path: path.resolve("lib"),
+    filename: "index.js",
+    libraryTarget: "commonjs2"
   },
-  externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: "babel-loader"
+      }
+    ]
   },
+  externals: {
+    // don't export React and other dependencies, use parent-project modules instead
+    react: "commonjs react"
+  }
 };

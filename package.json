@@ -1,45 +1,28 @@
 {
-  "name": "react-choices",
+  "name": "react-choices-answer",
   "version": "1.0.0",
-  "description": "React Choices",
+  "description": "React choices answer component.",
   "main": "index.js",
   "repository": "git@github.com:Kexin-Li/react-choices.git",
-  "author": "Kexin Li",
+  "author": "Kexin-Li <hollalikexin@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "./node_modules/.bin/parcel src/docs/index.html",
-    "build": "./node_modules/.bin/webpack --mode=production",
-    "build:docs": "./node_modules/.bin/parcel build src/docs/index.js -d ./dist/docs && cp src/docs/index.html dist/docs/index.html"
+    "build": "webpack"
   },
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
-  "peerDependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "@babel/plugin-proposal-class-properties": "^7.2.3",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/core": "^7.2.2",
     "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
-    "css-loader": "^2.1.0",
-    "eslint": "^5.10.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "parcel-bundler": "^1.11.0",
-    "prettier": "^1.15.3",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "path": "^0.12.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
   }
 }
