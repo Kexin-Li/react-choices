@@ -1,0 +1,7 @@
+{
+  "name": "react-choices-demo",
+  "version": "1.0.0",
+  "description": "React choices answer component demo",
+  "main": "index.js",
+  "license": "MIT"
+}

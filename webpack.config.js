@@ -1,35 +1,24 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+var path = require("path");
 
 module.exports = {
-  entry: "./example/index.js",
+  mode: "production",
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "example/dist"),
-    filename: "bundle.js"
+    path: path.resolve("lib"),
+    filename: "index.js",
+    libraryTarget: "commonjs2"
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: "babel-loader"
       }
     ]
   },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, "example/index.html"),
-      filename: "./index.html"
-    })
-  ]
+  externals: {
+    // don't export React and other dependencies, use parent-project modules instead
+    react: "commonjs react"
+  }
 };
