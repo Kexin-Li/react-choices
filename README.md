@@ -1,3 +1,3 @@
-# React Choice Answer Component
+# React Choices Answer Component
 
-This is a React choice and answer component.
+This is a React choices and answer component.

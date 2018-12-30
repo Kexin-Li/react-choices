@@ -2,7 +2,7 @@
   "name": "react-choices-answer",
   "version": "1.0.0",
   "description": "React choices answer component.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "repository": "git@github.com:Kexin-Li/react-choices.git",
   "author": "Kexin-Li <hollalikexin@gmail.com>",
   "license": "MIT",
