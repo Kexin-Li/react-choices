@@ -6,7 +6,7 @@ This is a React choices and answer component. Helping you build a bunch of dynam
 
 ## Install
 
-```bash
+```shell
 # npm
 npm install react-choices-answer
 
@@ -50,7 +50,7 @@ And here is an example in `demo` directory, you can download this project and ru
 
 ## Development
 
-```bash
+```shell
 # install dependences
 yarn
 
@@ -60,7 +60,7 @@ yarn build
 
 Then, you can into `demo` directory to see how it looks:
 
-```bash
+```shell
 # install dependences again
 yarn
 
