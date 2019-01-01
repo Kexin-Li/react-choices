@@ -1,5 +1,7 @@
 # React Choices Answer Component
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Kexin-Li/react-choices/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react-choices-answer) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Kexin-Li/react-choices/pulls)
+
 This is a React choices and answer component. Helping you build a bunch of dynamic inputs faster.
 
 ## Install
